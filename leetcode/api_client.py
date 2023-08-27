@@ -246,6 +246,9 @@ class ApiClient(object):
         except ValueError:
             data = response.data
 
+        if response_type == "json":
+            return data
+
         return self.__deserialize(data, response_type)
 
     def __deserialize(self, data, klass):
